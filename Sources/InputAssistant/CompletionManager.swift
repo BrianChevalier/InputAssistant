@@ -33,7 +33,7 @@ public struct Completion {
     public let appendingSuffix: String
 
     /// Additional information to store in the completion
-    let data: Any?
+    public let data: Any?
 
     public init(_ name: String, data: Any? = nil) {
         self.init(name, appendingSuffix: " ", data: data)
@@ -45,7 +45,11 @@ public struct Completion {
 
 /// Class that takes the current command and parses it into various states of auto completion,
 /// each state with various commands that can be run.
-public class AutoCompleteManager {
+open class AutoCompleteManager {
+    
+    public init(){
+        
+    }
     
     /// A set of completions to be displayed to the user. Updated when the `currentCommand` changes.
     public var completions: [Completion] = [] {
