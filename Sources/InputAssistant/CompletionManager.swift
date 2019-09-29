@@ -52,24 +52,24 @@ open class AutoCompleteManager {
     }
     
     /// A set of completions to be displayed to the user. Updated when the `currentCommand` changes.
-    public var completions: [Completion] = [] {
+    open var completions: [Completion] = [] {
         didSet {
             self.delegate?.autoCompleteManagerDidChangeCompletions()
         }
     }
     
     /// Set this to receive notifications when state changes.
-    public weak var delegate: AutoCompleteManagerDelegate?
+    open weak var delegate: AutoCompleteManagerDelegate?
     
     /// Set this to provide completions.
-    public weak var dataSource: AutoCompleteManagerDataSource? {
+    open weak var dataSource: AutoCompleteManagerDataSource? {
         didSet {
             self.updateCompletions()
         }
     }
 
     /// The current command text entered by the user.
-    private var currentCommand: String = "" {
+    open var currentCommand: String = "" {
         didSet {
             // Update the completions list, since the text changed.
             self.updateCompletions()
@@ -77,7 +77,7 @@ open class AutoCompleteManager {
     }
     
     /// Update the value of the `completions` property, based on the current command and state.
-    @objc func updateCompletions() {
+    open func updateCompletions() {
         self.completions = dataSource?.currentContextCompletions() ?? []
     }
     
