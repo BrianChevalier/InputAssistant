@@ -31,8 +31,10 @@ public protocol InputAssistantViewDataSource: class {
     /// Number of suggestions to display
     func numberOfSuggestionsInInputAssistantView() -> Int
     
-    /// Return information about the suggestion at the given index
+    /// The text that will be inserted when the user selects an entry
     func inputAssistantView(_ inputAssistantView: InputAssistantView, nameForSuggestionAtIndex index: Int) -> String
+    //The text the user will see in the inputassistantview
+    func inputAssistantView(_ inputAssistantView: InputAssistantView, displayNameForSuggestionAtIndex index: Int) -> String
 }
 
 /// Delegate to receive notifications about user actions in the input assistant view.
